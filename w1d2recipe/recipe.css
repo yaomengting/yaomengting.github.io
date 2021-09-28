@@ -1,0 +1,36 @@
+body{
+  background-color: white;
+  color:#404040;
+  font-size: 11px;
+  font-family: Georgia,Garamond,serif;
+}
+
+blockquote{
+  font-style:italic;
+  background: #FFFFA8;
+  display:block;
+
+}
+
+h1,h2{
+  color: #A4A400;
+  background-color: #F0F0F0;
+  font-family: "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+  text-decoration: underline;
+}
+
+h1{
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h2{
+  text-align: left;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+link{
+  color:#A4A400;
+}

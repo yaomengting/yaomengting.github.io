@@ -42,11 +42,41 @@ h1{
 }
 
 .logo{
-
+  vertical-align: bottom;
 }
 
 #rating{
   font-size: 48px;
   color: red;
   font-weight: bold;
+}
+
+.review-section{
+  column-count:2;
+  column-gap:2%;
+  column-width: 47%;
+}
+
+.quote{
+  font-size: 8px;
+  font-weight:bold;
+  background-color: #E8DC9B;
+  border-color: gray;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 8px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.small-icon{
+  float:left;
+}
+
+.reviewer{
+  margin-bottom: 20px;
+
+}
+.reviwer-icon{
+  float:left;
 }

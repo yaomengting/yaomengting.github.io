@@ -22,8 +22,9 @@ h1{
 }
 
 .overall-content{
+  position: relative;
 
-  width: 800px;
+  width:800px;
   margin: auto;
   border-style: solid;
   border-width: 4px;
@@ -54,10 +55,12 @@ h1{
 .review-section{
   column-count:2;
   column-gap:2%;
-  column-width: 47%;
+
 }
 
 .quote{
+  display: inline-block;
+
   font-size: 8px;
   font-weight:bold;
   background-color: #E8DC9B;
@@ -72,11 +75,47 @@ h1{
 .small-icon{
   float:left;
 }
-
+.review{
+  width:fit-content;
+}
 .reviewer{
   margin-bottom: 20px;
 
 }
 .reviwer-icon{
   float:left;
+}
+
+.overview-section{
+  width:250px;
+  position: absolute;
+  top:0px;
+  right:0px;
+  background-color: #A2B964;
+  font-size: 8pt;
+  font-family: Arial, sans-serif;
+}
+
+.term{
+
+  font-weight: bold;
+  margin-top:10pt;
+  margin-left: 10pt;
+}
+
+.list{
+  list-style: none;
+  padding-left: 0;
+
+}
+
+.review-note{
+  background-color: #A2B964;
+
+  text-align: center;
+}
+.validate-link{
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }

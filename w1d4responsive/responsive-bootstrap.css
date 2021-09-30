@@ -1,8 +1,12 @@
+.row{
+  margin:5pt;
+}
+
 .header {
 
  	background-color: powderblue;
   	text-align: center;
-  	padding:1px;
+  	padding:3px;
 }
 
 .nav{
@@ -42,5 +46,5 @@
   background-color: #32502E;
   text-align: center;
   color:white;
-  padding:1px;
+  padding:3px;
 }

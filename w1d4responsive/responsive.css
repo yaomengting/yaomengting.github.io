@@ -1,0 +1,76 @@
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'nav nav nav nav nav nav'
+    'column1 column2 column2 column2 column2 column3'
+    'footer footer footer footer footer footer';
+
+}
+
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas:
+      'header header header header header header'
+      'nav nav nav nav nav nav'
+      'column1 column1 column1 column3 column3 column3'
+      'column2 column2 column2 column2 column2 column2'
+
+      'footer footer footer footer footer footer';
+  }
+}
+
+.header {
+	grid-area: header;
+ 	background-color: powderblue;
+  	text-align: center;
+  	padding:1px;
+}
+
+.nav{
+  background-color: #32502E;
+  display: flex;
+  grid-area:nav;
+}
+
+.nav > div {
+  font-size: 20px;
+  border-right: 1px;
+  border-right-style: solid;
+  border-color:black;
+  padding:7px;
+  color:white;
+}
+
+.column1, .column2, .column3{
+
+  height:300px;
+
+}
+.column1{
+  grid-area: column1;
+
+  background-color: #9D9D9D;
+  padding:5px;
+}
+.column2{
+  grid-area: column2;
+
+  background-color:#C8C6C6;
+  padding:5px;
+}
+.column3{
+  grid-area: column3;
+
+  background-color: #F7F6F2;
+  padding:5px;
+}
+
+/* Style the footer */
+.footer {
+  grid-area: footer;
+  background-color: #32502E;
+  text-align: center;
+  color:white;
+  padding:1px;
+}

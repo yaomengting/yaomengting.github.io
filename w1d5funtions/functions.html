@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+function myFunctionTest(expected, found) {
+  if (expected === found) {
+    return "TEST SUCCEEDED";
+  } else {
+    return "TEST FAILED.  Expected " + expected + " found " + found;
+  }
+}
+
+function max(num1, num2){
+  if(num1 > num2){
+    return num1;
+  }else if(num2 > num1){
+    return num2;
+  }
+}
+console.log("Expected output of max(4,44) is 44  " + myFunctionTest(44, max(4, 44)));
+
+function maxOfThree(num1, num2, num3){
+      return max(max(num1, num2), num3);
+}
+console.log("Expected output of maxOfThree(98,4,44) is 98  " + myFunctionTest(98, maxOfThree(98,4,44)));
+
+function isVowel(str1){
+  if(str1 == "a" || str1 == "e"|| str1 == "i"|| str1 == "o"|| str1 == "u"){
+    return true;
+  }
+  return false;
+}
+console.log("Expected output of isVowel('a') is true  " + myFunctionTest(true, isVowel("a")));
+console.log("Expected output of isVowel('h') is false  " + myFunctionTest(false, isVowel("h")));
+
+function sum(sumArr){
+  let sum = 0;
+  for(let i = 0; i < sumArr.length; i++){
+    sum += sumArr[i];
+  }
+  return sum;
+}
+
+console.log("Expected output of sum([3,4,5]) is 12  " + myFunctionTest(12, sum([3,4,5])));
+
+<!-- This is functional programming version for sum -->
+const sumRes = [3,4,5].reduce(function(accumulator, elem){
+  return accumulator + elem;
+}, 0);
+
+console.log("Expected output of sumRes is 12  " + myFunctionTest(12, [3,4,5].reduce(function(accumulator, elem){
+  return accumulator + elem;
+}, 0)));
+
+function multiply(multiArr){
+  let res = 1;
+  for(let i = 0; i < multiArr.length; i++){
+    res *= multiArr[i];
+  }
+  return res;
+}
+
+console.log("Expected output of multiply([3,4,5]) is 60  " + myFunctionTest(60, multiply([3,4,5])));
+
+<!-- This is functional programming version for multiply -->
+const multiRes = [3,4,5].reduce(function(mulitplier, elem){
+  return mulitplier * elem;
+}, 1);
+
+console.log("Expected output of multiRes is 60  " + myFunctionTest(60, [3,4,5].reduce(function(mulitplier, elem){
+  return mulitplier * elem;
+}, 1)));
+
+function reverse(str1){
+  return str1.split("").reverse().join("");
+}
+
+console.log("Expected output of reverse('apple') is 'elppa'  " + myFunctionTest('elppa',reverse('apple')));
+
+function findLongestWord(arr1){
+  let res = 0;
+  for(let i = 0; i < arr1.length; i++){
+    if(arr1[i].length > res){
+      res = arr1[i].length;
+    }
+  }
+  return res;
+}
+console.log("Expected output of findLongestWord(['apple', 'programming', 'ice']) is '11'  " + myFunctionTest(11,findLongestWord(['apple', 'programming', 'ice'])));
+
+<!-- This is functional programming version for findLongestWord -->
+
+function findLongestWord2(arr){
+  return arr.reduce((a, b) => b.length > a.length? b: a, "").length;
+}
+
+console.log("Expected output of findLongestWord2(['apple', 'programming', 'ice']) is '11'  " + myFunctionTest(11,findLongestWord2(['apple', 'programming', 'ice'])));
+
+function filterLongWords(filterArr, len){
+  return filterArr.filter(arr => arr.length > len);
+}
+// console.log(typeof filterLongWords(['apple', 'programming', 'ice'], 4))
+// console.log("Expected output of filterLongWords(['apple', 'programming', 'ice'], 4) is ['apple', 'programming']  " + filterLongWords(['apple', 'programming', 'ice'], 4));
+
+console.log("Expected output of filterLongWords(['apple', 'programming', 'ice'], 4) is ['apple', 'programming']  " + myFunctionTest(['apple', 'programming'],filterLongWords(['apple', 'programming', 'ice'], 4)));
+
+const arr =[1,3,5,3,3];
+const a = arr.map(a => a * 10);
+
+console.log("Expected output of  is [10,30,50,30,30]  " + myFunctionTest([10,30,50,30,30],a));
+
+const b = arr.filter(arr=> arr == 3);
+
+console.log("Expected output of  is [3,3,3]  " + myFunctionTest([3,3,3],b));
+
+const c = arr.reduce(function(pre,cur){
+  return pre * cur
+}, 1)
+
+console.log("Expected output of  is 135  " + myFunctionTest(135, c));
+
+
+    </script>
+  </head>
+  <body>
+This is for test JavaScript functions.
+  </body>
+</html>

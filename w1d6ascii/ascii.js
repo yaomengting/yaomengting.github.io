@@ -7,7 +7,7 @@ window.onload = function() {
   const fontSelect = document.getElementById("fontsize");
   const turbo = document.getElementById("turbo");
   let timer = null; // store the id of the timer, to use in clearInterval;
-  let frame = null; // array, store each frame, split by ====/n
+  let frame = []; // array, store each frame, split by ====/n
   let i = 0; // to store the index of frame array, which frame we need display now;
   let animationStr; //the whole animation before split;
   let custom;
@@ -16,6 +16,7 @@ window.onload = function() {
   startButton.onclick = timerFunction;
 
   function startAnimation() {
+    custom = document.getElementById("text-area").value;
     document.getElementById("text-area").value = frame[i];
     if (i < frame.length - 1) {
       i++;
@@ -24,11 +25,11 @@ window.onload = function() {
     }
     startButton.disabled = true;
     stopButton.disabled = false;
+    animationSelect.disabled = true;
   }
 
   function timerFunction() {
-    document.getElementById("animation").disabled = true;
-    custom = document.getElementById("text-area").value;
+
     if (timer == null) {
       timer = setInterval(startAnimation, 250);
     }
@@ -68,6 +69,7 @@ window.onload = function() {
     let textAreaContent = document.getElementById("text-area");
     // display the whole animation in textarea;
     textAreaContent.value = ANIMATIONS[animationSelect.value];
+    timer = null;
   }
 
   fontSelect.onchange = fontChange;

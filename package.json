@@ -1,0 +1,22 @@
+{
+  "name": "yaomengting.github.io",
+  "version": "1.0.0",
+  "description": "a very interesting project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaomengting/yaomengting.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaomengting/yaomengting.github.io/issues"
+  },
+  "homepage": "https://github.com/yaomengting/yaomengting.github.io#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}

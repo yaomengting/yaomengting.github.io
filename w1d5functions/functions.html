@@ -127,6 +127,19 @@
 
     console.log("Expected output of  is 135  " + myFunctionTest(135, c));
 
+    function shortest(str1, str2, str3){
+      let res = str1;
+      if(str2.length < res.length){
+      res = str2;
+    }else if(str3.length < res.length){
+      res = str3;
+    }
+    return res;
+}
+   console.log("Expected output of  is 'z' " + myFunctionTest("z", shortest("hello", "z", "bye")));
+
+
+
   </script>
 </head>
 

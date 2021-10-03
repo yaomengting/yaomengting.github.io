@@ -16,7 +16,7 @@ window.onload = function() {
   startButton.onclick = timerFunction;
 
   function startAnimation() {
-    custom = document.getElementById("text-area").value;
+    //custom = document.getElementById("text-area").value;
     document.getElementById("text-area").value = frame[i];
     if (i < frame.length - 1) {
       i++;
@@ -29,6 +29,7 @@ window.onload = function() {
   }
 
   function timerFunction() {
+    // if(animationSelect.value == "") startButton.disabled = true;
 
     if (timer == null) {
       timer = setInterval(startAnimation, 250);
@@ -38,6 +39,7 @@ window.onload = function() {
   stopButton.onclick = stopAnimation;
 
   function stopAnimation() {
+
     // enable the start button;
     startButton.disabled = false;
     // disable the end button;
@@ -45,11 +47,11 @@ window.onload = function() {
     // enable the animation button;
     animationSelect.disabled = false;
     // stop the animation interval;
-    clearInterval(timer);
+  clearInterval(timer);
     // reset the timer;
     timer = null;
     // reset the textarea content to the whole one;
-    document.getElementById("text-area").value = custom;
+    document.getElementById("text-area").value = animationStr;
     // reset the frame array index;
     i = 0;
   }
@@ -58,6 +60,7 @@ window.onload = function() {
 
   function animationChange() {
     // enable the start button;
+  //  if(animationSelect.value == ANIMATIONS["blank"]) startButton.disabled = true;
     startButton.disabled = false;
     animationSelect.disabled = true;
     // store the whole animation str;
@@ -85,13 +88,16 @@ window.onload = function() {
   function speedChange() {
 
     let check = turbo.checked;
-    clearInterval(timer);
+    // clearInterval(timer);
     if (check) {
 
       timer = setInterval(timerFunction, 50);
-    } else {
-      timer = setInterval(timerFunction, 250);
+      console.log("timer:");
     }
+    // } else {
+    //
+    //   timer = setInterval(timerFunction, 250);
+    // }
   }
 
 

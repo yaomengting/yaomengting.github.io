@@ -1,6 +1,6 @@
 window.onload = function () {
   "use strict";
-
+ console.log("version12.30.02");
   const startButton = document.getElementById("start");
   const stopButton = document.getElementById("stop");
   const turboCheckbox = document.getElementById("turbo");

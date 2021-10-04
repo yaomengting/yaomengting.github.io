@@ -1,3 +1,4 @@
+window.onload = function () {
   "use strict";
 
   const startButton = document.getElementById("start");

@@ -1,104 +1,101 @@
-window.onload = function() {
+window.onload = function () {
   "use strict";
 
   const startButton = document.getElementById("start");
   const stopButton = document.getElementById("stop");
+  const turboCheckbox = document.getElementById("turbo");
   const animationSelect = document.getElementById("animation");
-  const fontSelect = document.getElementById("fontsize");
-  const turbo = document.getElementById("turbo");
-  let timer = null; // store the id of the timer, to use in clearInterval;
-  let frame = []; // array, store each frame, split by ====/n
-  let i = 0; // to store the index of frame array, which frame we need display now;
-  let animationStr; //the whole animation before split;
-  let custom;
-
-
-  startButton.onclick = timerFunction;
-
+  let textAreaContent = document.getElementById("text-area");
+  startButton.onclick = startButtonClickHandler;
+  stopButton.onclick = stopButtonClickHandler;
+  animationSelect.onchange = animationChangeEventHandler;
+  turboCheckbox.onclick = turboSelectedChange;
+  let intervalRef;
+  let animationStr;
+  let isRunning = false;
+  let text = "";
+  let speed = 250;
   function startAnimation() {
-    //custom = document.getElementById("text-area").value;
-    document.getElementById("text-area").value = frame[i];
-    if (i < frame.length - 1) {
-      i++;
-    } else {
-      i = 0;
-    }
-    startButton.disabled = true;
-    stopButton.disabled = false;
-    animationSelect.disabled = true;
-  }
+    console.log("startAnimation...");
+    isRunning = true;
+    let textAreaContent = animationStr;
+    let frame = textAreaContent.split("=====\n");
+    intervalRef = setInterval(displayFrame, speed);
+    let i = 0;
 
-  function timerFunction() {
-    // if(animationSelect.value == "") startButton.disabled = true;
-
-    if (timer == null) {
-      timer = setInterval(startAnimation, 250);
+    function displayFrame() {
+      if (i < frame.length - 1) {
+        i++;
+      } else {
+        i = 0;
+      }
+      document.getElementById("text-area").value = frame[i];
     }
   }
 
-  stopButton.onclick = stopAnimation;
-
+  function restartAnimation() {
+    stopAnimation();
+    startAnimation();
+  }
   function stopAnimation() {
+    clearInterval(intervalRef);
+    isRunning = false;
+  }
+  function startButtonClickHandler() {
+    console.log("startButtonClickHandler...");
 
-    // enable the start button;
-    startButton.disabled = false;
-    // disable the end button;
-    stopButton.disabled = true;
-    // enable the animation button;
-    animationSelect.disabled = false;
-    // stop the animation interval;
-  clearInterval(timer);
-    // reset the timer;
-    timer = null;
-    // reset the textarea content to the whole one;
-    document.getElementById("text-area").value = animationStr;
-    // reset the frame array index;
-    i = 0;
+    startAnimation();
+    changeStatus(isRunning);
+    text = textAreaContent.value;
   }
 
-  animationSelect.onchange = animationChange;
+  function stopButtonClickHandler() {
+    console.log("stopButtonClickHandler...");
+    stopAnimation();
+    changeStatus(isRunning);
+    textAreaContent.value = text;
+  }
 
-  function animationChange() {
-    // enable the start button;
-  //  if(animationSelect.value == ANIMATIONS["blank"]) startButton.disabled = true;
-    startButton.disabled = false;
-    animationSelect.disabled = true;
-    // store the whole animation str;
+  function animationChangeEventHandler() {
     animationStr = ANIMATIONS[animationSelect.value];
-    // store whole content in text area including user input;
-
-    // store each frame by split in an array;
-    frame = animationStr.split("=====\n");
-    let textAreaContent = document.getElementById("text-area");
-    // display the whole animation in textarea;
+    text = "";
+    console.log("animationStr:", animationStr);
     textAreaContent.value = ANIMATIONS[animationSelect.value];
-    timer = null;
+    if (isRunning) restartAnimation();
   }
-
-  fontSelect.onchange = fontChange;
 
   // set value to make code simpler
-  function fontChange() {
-    let textAreaContent = document.getElementById("text-area");
+  const fontSelect = document.getElementById("fontsize");
+  fontSelect.onchange = fontChangeEventHandler;
+
+  function fontChangeEventHandler() {
     textAreaContent.style.fontSize = fontSelect.value + "pt";
   }
 
-  turbo.onclick = speedChange;
-
-  function speedChange() {
-
-    let check = turbo.checked;
-    // clearInterval(timer);
-    if (check) {
-
-      timer = setInterval(timerFunction, 50);
-      console.log("timer:");
+  function turboSelectedChange() {
+    const checked = turboCheckbox.checked;
+    if (checked) {
+      speed = 50;
+    } else {
+      speed = 250;
     }
-    // } else {
-    //
-    //   timer = setInterval(timerFunction, 250);
-    // }
+    if (!isRunning) return;
+    stopAnimation();
+    startAnimation();
+    changeStatus(isRunning);
   }
 
-
+  function changeStatus(isRunning) {
+    if (isRunning) {
+      startButton.disabled = true;
+      stopButton.disabled = false;
+      animationSelect.disabled = true;
+      textAreaContent.disabled = true;
+    } else {
+      startButton.disabled = false;
+      stopButton.disabled = true;
+      animationSelect.disabled = false;
+      textAreaContent.disabled = false;
+    }
+  }
 };

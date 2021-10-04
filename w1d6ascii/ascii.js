@@ -11,7 +11,7 @@ window.onload = function () {
   animationSelect.onchange = animationChangeEventHandler;
   turboCheckbox.onclick = turboSelectedChange;
   let intervalRef;
-  let animationStr;
+  let animationStr = "";
   let isRunning = false;
   let text = "";
   let speed = 250;
@@ -19,7 +19,9 @@ window.onload = function () {
     console.log("startAnimation...");
     isRunning = true;
     let textAreaContent = animationStr;
+    console.log("animationStr:", animationStr);
     let frame = textAreaContent.split("=====\n");
+    console.log("frame[0]", frame);
     intervalRef = setInterval(displayFrame, speed);
     let i = 0;
 

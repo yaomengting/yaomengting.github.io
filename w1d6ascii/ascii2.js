@@ -82,7 +82,7 @@ window.onload = function () {
 
   fontSelect.onchange = fontChange;
 
-  // set value to make code simpler
+  
   function fontChange() {
     textAreaContent.style.fontSize = fontSelect.value + "pt";
   }

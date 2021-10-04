@@ -1,0 +1,138 @@
+body {
+  background-color: #f6f6f6;
+  margin: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "item1 item4"
+    "item2 item5"
+    "item3 item6";
+  margin: 10px 0px 30px 40px;
+  min-width: 50px;
+  min-height: 20px;
+  color: #333333;
+}
+input{
+  width: 400px;
+  height: 20px;
+  
+  border-radius: 2px;
+}
+#select{
+    width: 400px;
+  height: 20px;
+}
+.item1 .item2{
+    margin-bottom:20px;
+}
+
+.title {
+  font-size: 30px;
+  grid-area: title;
+  padding-bottom: 20px;
+}
+.item1 {
+  grid-area: item1;
+}
+.item2 {
+  grid-area: item2;
+}
+.item3 {
+  grid-area: item3;
+}
+.item4 {
+  grid-area: item4;
+}
+.item5 {
+  grid-area: item5;
+}
+.item6 {
+  grid-area: item6;
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: auto auto auto 20px auto;
+  min-height: 55px;
+  background-color: #38a3a5;
+  color: white;
+}
+
+#nav1 {
+  margin: 20px 0px 10px 10px;
+  width: fit-content;
+}
+
+#nav2 {
+  position: relative;
+  right: 40px;
+  padding: 0 0 0 10;
+  margin: 20px 5px 10px 5px;
+  border-width: 1px;
+  border-color: white;
+  border-style: none solid none solid;
+  text-align: center;
+}
+
+#nav3 {
+  position: relative;
+  top: 20px;
+}
+#nav4 {
+  position: relative;
+  left: 50px;
+  top: 20px;
+}
+
+#nav5 {
+  border-radius: 5px;
+  background-color: #f6f6f6;
+  position: relative;
+  top: 10px;
+
+  float: right;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  color: gray;
+  border-color: gray;
+}
+
+.button{
+float:right;
+text-align: center;
+display:inline-block;
+
+}
+
+#reset{
+    border-color:blue;
+    
+    color:blue;
+    margin:10px;
+padding:10px;
+border-radius: 10px;
+font-size: 15pt;
+   
+}
+
+#cancel{
+    border-color: orange;
+    color:orange;
+    margin:5px;
+    padding:10px;
+    border-radius: 10px;
+    font-size: 15pt;
+}
+
+#addProduct{
+    border-color: #38a3a5;
+    color:#38a3a5;
+    margin:5;
+    padding:10px;
+    border-radius: 10px;
+    font-size: 15pt;
+}

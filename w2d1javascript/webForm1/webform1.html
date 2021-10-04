@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="webform1.css">
+    <title>Document</title>
+</head>
+<body>
+    
+        <form action="">
+            <div>
+                <label >Email Address</label><br>
+                <input id="email" type="text" value="Enter email" ><br>
+                <span>We'll never share your email with anyone else</span>
+            </div>
+           <div>
+            <label >Password</label><br>
+            <input id="password" type="text" value="Password" pattern="(?=.*[a-z])(?=.*[A-Z](?=.*\d)[a-zA-z\d]{10,})"><br>
+           </div>
+            <div>
+                <label for="">Please enter your website</label><br>
+                <input id="url" type="text" pattern="http?://.+" title="Please enter a URL" >
+            </div>
+            <div>
+                <input id="checkbox" type="checkbox">Check me out<br>
+            </div>
+           <div>
+            <button id="submit" type="submit" value="Submit">Submit</button>
+           </div>
+            
+            
+        </form>
+    
+   
+    
+</body>
+</html>

@@ -18,13 +18,13 @@ window.onload = function () {
 
   function startAnimation() {
     // when clicked start button, animation start move;
-    
+
     isRunning = true;
     // assign whole animation str to textarea content variable ;
     textAreaContent = animationStr;
     // get each frame throught split;
     let frame = textAreaContent.split("=====\n");
-   
+
     timer = setInterval(displayFrame, speed);
     let i = 0;
     // display each frame again and again;
@@ -82,7 +82,6 @@ window.onload = function () {
 
   fontSelect.onchange = fontChange;
 
-  
   function fontChange() {
     textAreaContent.style.fontSize = fontSelect.value + "pt";
   }

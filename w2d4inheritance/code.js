@@ -1,9 +1,11 @@
 String.prototype.filter = function (banned) {
-  const arr = this.toString().split(" ");
-  return arr.filter((a) => !banned.includes(a)).join(" ");
+  return this.toString()
+    .split(" ")
+    .filter((a) => !banned.includes(a))
+    .join(" ");
 };
 
-//console.log("This house is not nice".filter(["not", "nice"]));
+console.log("This house is not nice".filter(["not", "nice"]));
 
 Array.prototype.bubbleSort = function () {
   for (var i = 0; i < this.length; i++) {

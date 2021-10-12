@@ -50,8 +50,6 @@ describe("savings account function tests", function () {
   });
 
   it("error check", function () {
-    const account = new SavingsAccount(1, 1);
-
     assert.throws(
       () => {
         account.withdraw(-100);
@@ -59,6 +57,17 @@ describe("savings account function tests", function () {
       RangeError,
       "Withdraw amount has to be greater than zero"
     );
+  });
+
+  it("toString", function () {
+    let res = "SavingsAccount 234: balance 104";
+    assert.equal(res, account.toString());
+  });
+
+  it("endOfMonth", function () {
+    
+    let res = "Interest added SavingsAcccount234: balance 104 interest :3";
+    assert.equal(res, account.endOfMonth());
   });
 });
 

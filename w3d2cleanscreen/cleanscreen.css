@@ -1,0 +1,11 @@
+.cycle {
+  position: fixed;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.control {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}

@@ -47,16 +47,13 @@ $(document).ready(function () {
     // create circles
     for (let i = 0; i < numberOfCircles; i++) {
       const $circle = createCircle(width, width, getRandomColor());
-      console.log("circle:", $circle);
       $circle.appendTo($("#container"));
       circles.push($circle);
     }
     // start animation
     circles.forEach(($circle) => {
       setInterval(() => {
-        // const size =  getRandomNumber(-10, 10);
-        // $circle.width($circle.width() + size);
-        // $circle.height($circle.height() + size);
+        
         $circle.width($circle.width() + growthAmount);
         $circle.height($circle.height() + growthAmount);
       }, interval);

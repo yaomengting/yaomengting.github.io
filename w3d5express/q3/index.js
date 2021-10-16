@@ -15,8 +15,6 @@ app.post("/result", (req, res, next) => {
 app.use("/css", express.static(path.join(__dirname, "css")));
 const date = new Date();
 let hour = date.getHours();
-hour = 23;
-console.log(hour);
 if (hour >= 6 && hour <= 18) {
   app.use(express.static(path.join(__dirname, "css", "day.css")));
 } else if (hour > 18 && hour < 6) {

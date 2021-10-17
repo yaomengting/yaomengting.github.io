@@ -21,5 +21,8 @@
     "prettier": "^2.4.1",
     "prettier-eslint": "^13.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
 }

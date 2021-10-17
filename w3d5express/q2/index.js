@@ -1,9 +1,8 @@
 // install nodemon:npm install nodemon -g
 
 const express = require("express");
-const bodyParser = require("body-parser");
 const app = express();
-app.use(bodyParser.urlencoded());
+app.use(express.urlencoded({extends:false}));
 
 app.get("/", (req, res, next) => {
   res.send(

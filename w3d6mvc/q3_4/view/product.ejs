@@ -7,10 +7,11 @@
 </head>
 <body>
 
-  <p>Product name:<%=productName%></p>
-  <p>Product price:<%=productPrice%></p>
-  
-  <form action="/addToCart"><button>Add to Cart</button></form>
+  <form action="/addToCart" method="POST">
+    <label>Product name:<%=productName%></label><br>
+    <label>Product price:<%=productPrice%></label><br>
+    <button>Add to Cart</button>
+  </form>
   
 </body>
 </html>

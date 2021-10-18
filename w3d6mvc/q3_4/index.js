@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-app.use(express.urlencoded({ extends: false }));
+app.use(express.urlencoded({ extended: true }));
 const path = require("path");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "view"));
@@ -37,6 +37,7 @@ app.get("/product2", (req, res, next) => {
 // put productname and price into form to get the value?
 app.post("/addToCart", (req, res, next) => {
   console.log("req.body", req.body);
+  console.log("productName",productName);
 
   res.redirect(303, "/cart");
 });

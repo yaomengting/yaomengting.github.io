@@ -7,13 +7,20 @@
 <body>
   <p>Shopping Cart</p>
  
-  <!-- 
+  
     <ul>
-    <% for(const product of shoppingCart){ %>
-      <% if(product.name == "**", product.quantity ++; %>
-      <li><%= product %> </li>
-      <% } %> 
+   
+      <table>
+        <% for(let key in cart){ %>
+          <tr>
+             <td><%= cart[key].qty %></td>
+             <td> <%= key %> </td>
+            <td><%= cart[key].qty %></td>
+           </tr>
+            <% } %> 
+      </table>
+      
   </ul> 
--->
+
 </body>
 </html>

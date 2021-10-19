@@ -6,8 +6,10 @@
 </head>
 <body>
   <ul>
-    <li><a href="/<%=redirect1%>"><%=product1%></a></li>
-    <li><a href="/<%=redirect2%>"><%=product2%></a></li>
+    
+   <% for(let item in products){ %>  
+      <li><a href="/product?prod=<%= item %> "><%= item %></a></li>
+   <%  } %> 
     </ul>
   
 </body>

@@ -6,11 +6,14 @@
   <title>Document</title>
 </head>
 <body>
+  <h1><%= name %> </h1>
+  <p><%= desc %></p>
+  <p>Price: <%= price %></p>
 
   <form action="/addToCart" method="POST">
-    <label>Product name:<%=productName%></label><br>
-    <label>Product price:<%=productPrice%></label><br>
-    <button>Add to Cart</button>
+    <input type="hidden" name='prod' value='<%= name %>'>
+    <input type="hidden" name='price' value='<%= price %> '>
+    <input type="submit" value='Add to Cart'>
   </form>
   
 </body>

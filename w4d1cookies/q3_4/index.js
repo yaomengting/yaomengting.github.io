@@ -12,14 +12,18 @@ app.use(
     secret: "salt for cookie signing",
   })
 );
+app.use((req, res,next)=>{
+  if(!req.session.cart){
+    req.session.cart = {};
+  }
+  next();
+});
 let products = {
   Tomato: { price: 2, des: "Red" },
   Orange: { price: 3, des: "Yellow" },
 };
 
 app.get("/", (req, res) => {
-  console.log(req);
-  console.log("req.session:", req.session);
   res.render("shop", { products });
 });
 
@@ -33,30 +37,29 @@ app.get("/product", (req, res) => {
 
 /*
 cart = {}
-cart =  {
+req.session.cart =  {
   Tomato: { price: 4, quantity: 2 },
 }
 */
 app.post("/addToCart", (req, res) => {
   let name = req.body.name;
   let price = parseFloat(req.body.price);
-  const cart = req.session[req.sessionID] || {};
-  if (cart[name]) {
-    cart[name].quantity++;
-    cart[name].price += price;
-  } else {
-    cart[name] = { price, quantity: 1 };
+  console.log(req.session.cart);
+  if(req.session.cart[name]){
+    req.session.cart[name].price += price;
+    req.session.cart[name].quantity++;
+  }else{
+    req.session.cart[name] = {
+      price, quantity: 1
+    };
   }
-  console.log("cart", cart);
-  req.session[req.sessionID] = cart;
   res.redirect(303, "/cart");
 });
 
 app.get("/cart", (req, res) => {
-  console.log("req.session:", req.session);
-  console.log("req.session[req.sessionID]", req.session[req.sessionID]);
-  res.locals.cart = req.session[req.sessionID];
-  res.render("shoppingcart");
+  res.render("shoppingcart", {
+    cart: req.session.cart
+  });
 });
 
 app.listen(3000);
